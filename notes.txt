@@ -1,0 +1,1 @@
+• Create a submit button that works in tandem with email input to validate email.
