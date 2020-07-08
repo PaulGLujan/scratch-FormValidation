@@ -13,10 +13,10 @@
     <div id="sign-up-form">
       <form id="signUpForm">
         <label for="firstName">First Name</label><br />
-        <input type="text" id="firstName" /><br />
+        <input required type="text" id="firstName" /><br />
         <label for="lastName">Last Name</label>
         <br />
-        <input type="text" id="lastName" />
+        <input required type="text" id="lastName" />
         <br />
         <label for="email">Email</label>
         <br />
@@ -24,13 +24,13 @@
         <br />
         <label for="password">Password</label>
         <br />
-        <input type="password" id="password" />
+        <input required type="password" id="password" />
         <br />
         <label for="passwordConfirmation">Password Confirmation</label>
         <br />
-        <input type="password" id="passwordConfirmation" />
+        <input required type="password" id="passwordConfirmation" />
         <br />
-        <input id="submit" type="submit" value="Submit" />
+        <input required id="submit" type="submit" value="Submit" />
       </form>
       <h2 id="thankMessage" hidden>Thank you for submitting the form.</h2>
     </div>

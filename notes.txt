@@ -1,3 +1,7 @@
 • Create a submit button that works in tandem with email input to validate email.
     • Clicking submit with invalid email address should show error message
     • Filling out email address and hitting submit should show form complete
+
+• No missing fields
+    • Do not allow form to be submitted with empty fields
+    • Show an error message if users clicks "submit" and fields are empty
