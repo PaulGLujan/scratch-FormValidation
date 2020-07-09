@@ -5,3 +5,9 @@
 • No missing fields
     • Do not allow form to be submitted with empty fields
     • Show an error message if users clicks "submit" and fields are empty
+
+• Validate inputs on input
+    • If an input has text entered, color it green
+        • Is there an input event or an onchange event? => Yes. .onchange
+    • Apply to all inputs
+

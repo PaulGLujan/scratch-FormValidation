@@ -7,6 +7,9 @@
       .invalid {
         border: 2px dashed red;
       }
+      .valid {
+        border: 2px solid green;
+      }
     </style>
   </head>
   <body>
@@ -35,21 +38,57 @@
       <h2 id="thankMessage" hidden>Thank you for submitting the form.</h2>
     </div>
     <script>
+      /*** Grab Elements ***/
       const signUpForm = document.getElementById("signUpForm");
-      const emailElement = document.getElementById("email");
+      const firstNameEl = document.getElementById("firstName");
+      const lastNameEl = document.getElementById("lastName");
+      const emailEl = document.getElementById("email");
+      const passwordEl = document.getElementById("password");
+      const passwordConfirmationEl = document.getElementById(
+        "passwordConfirmation"
+      );
+
+      /*** Apply Event Handlers ***/
+      firstNameEl.onchange = handleFirstNameInput;
+      lastNameEl.onchange = handlelastNameInput;
+      emailEl.onchange = handleEmailInput;
+      emailEl.oninvalid = handleInvalid;
+      passwordEl.onchange = handlePasswordInput;
+      passwordConfirmationEl.onchange = handlePasswordConfirmationInput;
       signUpForm.onsubmit = handleFormSubmit;
-      emailElement.oninvalid = handleInvalid;
+
+      /*** Event Callbacks ***/
+      function handleFirstNameInput(event) {
+        firstNameEl.classList.add("valid");
+      }
+
+      function handlelastNameInput(event) {
+        lastNameEl.classList.add("valid");
+      }
+
+      function handleEmailInput(event) {
+        const emailString = event.target.value;
+        const emailRegex = new RegExp(
+          "^[a-zA-Z0-9.!#$%&'*+\/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$"
+        );
+        if (emailRegex.test(emailString)) {
+          emailEl.classList.add("valid");
+        } else {
+          emailEl.classList.add("invalid");
+        }
+      }
+
+      function handlePasswordInput(event) {
+        passwordEl.classList.add("valid");
+      }
+
+      function handlePasswordConfirmationInput(event) {
+        passwordConfirmationEl.classList.add("valid");
+      }
 
       function handleFormSubmit(event) {
         event.preventDefault();
-        email.classList.remove("invalid");
         document.getElementById("thankMessage").removeAttribute("hidden");
-      }
-
-      function handleInvalid(event) {
-        event.preventDefault();
-        const emailElement = document.getElementById("email");
-        emailElement.classList.add("invalid");
       }
     </script>
   </body>
