@@ -52,7 +52,6 @@
       firstNameEl.onchange = handleFirstNameInput;
       lastNameEl.onchange = handlelastNameInput;
       emailEl.onchange = handleEmailInput;
-      emailEl.oninvalid = handleInvalid;
       passwordEl.onchange = handlePasswordInput;
       passwordConfirmationEl.onchange = handlePasswordConfirmationInput;
       signUpForm.onsubmit = handleFormSubmit;
@@ -83,7 +82,11 @@
       }
 
       function handlePasswordConfirmationInput(event) {
-        passwordConfirmationEl.classList.add("valid");
+        if (passwordEl.value === passwordConfirmationEl.value) {
+          passwordConfirmationEl.classList.add("valid");
+        } else {
+          passwordConfirmationEl.classList.add("invalid");
+        }
       }
 
       function handleFormSubmit(event) {
